@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{legacy}
-  s.version = ""
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roy van der Meij"]
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
     "MIT-LICENSE",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
     "legacy.gemspec",
     "lib/legacy.rb",
     "test/dummy/Rakefile",
