@@ -1,14 +1,21 @@
 module Legacy
-  def method_missing(method_id, *args, &block)
-    super(select_real_method_id(method_id), *args, &block)
+  def self.included(base)
+    base.extend ClassMethods
   end
 
-  def select_real_method_id(method_id)
-    real_method_id = attributes.keys.detect{ |c| c.to_s.downcase == method_id.to_s.downcase.gsub(/=/, '') }
-    return method_id unless real_method_id
+  def self.real_method(columns, method)
+    columns.inject(method.to_s){|m, c| m.gsub(c.downcase, c)}.to_sym
+  end
 
-    method_id = method_id.to_s
-    method_id[0..(real_method_id.length - 1)] = real_method_id
-    method_id
+  def method_missing(method_id, *args, &block)
+    super(Legacy.real_method(attributes.keys, method_id), *args, &block)
+  end
+
+  module ClassMethods
+    def method_missing(method_id, *args, &block)
+      method_id = Legacy.real_method(column_names, method_id) if method_id.to_s =~ /^find(.*)by(.*?)/
+
+      super(method_id, *args, &block)
+    end
   end
 end
