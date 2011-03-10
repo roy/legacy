@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{legacy}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roy van der Meij"]
-  s.date = %q{2011-03-09}
+  s.date = %q{2011-03-10}
   s.description = %q{}
   s.email = %q{roy@royapps.nl}
   s.extra_rdoc_files = [
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "test/dummy/Rakefile",
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
+    "test/dummy/app/models/post.rb",
     "test/dummy/app/views/layouts/application.html.erb",
     "test/dummy/config.ru",
     "test/dummy/config/application.rb",
@@ -43,6 +44,8 @@ Gem::Specification.new do |s|
     "test/dummy/config/initializers/session_store.rb",
     "test/dummy/config/locales/en.yml",
     "test/dummy/config/routes.rb",
+    "test/dummy/db/migrate/20110310102359_create_posts.rb",
+    "test/dummy/db/schema.rb",
     "test/dummy/public/404.html",
     "test/dummy/public/422.html",
     "test/dummy/public/500.html",
@@ -67,6 +70,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/dummy/app/controllers/application_controller.rb",
     "test/dummy/app/helpers/application_helper.rb",
+    "test/dummy/app/models/post.rb",
     "test/dummy/config/application.rb",
     "test/dummy/config/boot.rb",
     "test/dummy/config/environment.rb",
@@ -79,6 +83,8 @@ Gem::Specification.new do |s|
     "test/dummy/config/initializers/secret_token.rb",
     "test/dummy/config/initializers/session_store.rb",
     "test/dummy/config/routes.rb",
+    "test/dummy/db/migrate/20110310102359_create_posts.rb",
+    "test/dummy/db/schema.rb",
     "test/integration/navigation_test.rb",
     "test/legacy_test.rb",
     "test/support/integration_case.rb",
